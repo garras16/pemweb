@@ -1,0 +1,222 @@
+html, body {
+	margin: 0px;
+	padding: 0px;
+	background: #FFFFFF;
+}
+.containt {
+	width: 1024px;
+	margin: 0px 100px;
+}
+.top {
+	background: #dcd7d7;
+	width: 100%;
+	overflow: hidden;
+	padding-bottom: 40px;
+}
+
+.nav {
+		border-radius: 10px;
+		width: 60%;
+		margin-left: 15px;
+    background-color: #333;
+    overflow: hidden;
+		position: absolute;
+		margin-top: -12px;
+}
+.label {
+	background-color: #000;
+	width: 100px;
+	margin-left: 15px;
+	margin-top: 20px;
+	padding: 5px 10px;
+	border-top-left-radius: 20px;
+	border-top-right-radius: 5px;
+	color: #fff;
+}
+.label-right {
+	background-color: #000;
+	width: 100px;
+	float: right;
+	margin-right: 15px;
+	margin-top: 20px;
+	padding: 5px 10px;
+	border-top-left-radius: 20px;
+	border-top-right-radius: 5px;
+	color: #fff;
+}
+
+#kiri {
+	width: 30%;
+	float: left;
+	margin-left: 100px;
+}
+#tengah {
+	width: 30%;
+	float: left;
+	margin-right: 15px;
+	overflow: hidden;
+}
+#kanan {
+	float: right;
+	width: 30%;
+}
+
+
+/* untuk biu data */
+.bio {
+	padding: 10px 15px;
+}
+.bio img {
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	float: left;
+}
+.tag {
+	border-bottom: 1px solid #000;
+	width: 100%;
+	margin-top: -9px;
+	background: #eae7e7;
+	padding: 15px 0px;
+	overflow: hidden;
+	border-top: 1px solid #000;
+}
+#bio {
+	float: left;
+}
+
+/* Style the links inside the navigation bar */
+.nav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.nav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Add an active class to highlight the current page */
+.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Hide the link that should open and close the topnav on small screens */
+.nav .icon {
+    display: none;
+}
+
+/* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
+@media screen and (max-width: 1300px) {
+	.containt {
+		width: 1140px;
+		margin: 0px 50px;
+	}
+	.title {
+		margin-left: 15px;
+	}
+	.nav {
+		width: 60%;
+	}
+}
+
+@media screen and (min-width: 500px) {
+	.containt {
+		width: 100%;
+		margin: 0px;
+	}
+	.nav {
+		width: 100%;
+		margin-left: 0px;
+		border-radius: 0px;
+	}
+	.top {
+		margin-bottom: 0px;
+	}
+	.bio img {
+		margin: 0px 5%;
+	}
+}
+
+/* Untuk HP */
+@media screen and (max-width: 600px) {
+	.containt {
+		width: 100%;
+		margin: 0px;
+	}
+	.nav {
+		width: 100%;
+		margin-left: 0px;
+		border-radius: 0px;
+	}
+	.top {
+		margin-bottom: 0px;
+	}
+	.bio img {
+		margin: 0px 20%;
+	}
+  .nav a:not(:first-child) {display: none;}
+  .nav a.icon {
+    float: right;
+    display: block;
+  }
+
+	.tag {
+		border: none;
+	}
+	#kiri {
+		width: 100%;
+		margin-left: 10px;
+	}
+	#tengah {
+		width: 100%;
+		margin-top: 50px;
+		margin-left: 10px;
+	}
+	#kanan {
+		width: 100%;
+		float: left;
+		margin-top: 50px;
+		margin-left: 10px;
+	}
+}
+
+/* Ubah menu HP */
+@media screen and (max-width: 1024px) {
+  .nav.responsive {position: absolute;}
+  .nav.responsive a.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+	.top {
+		margin-bottom: 0px;
+	}
+	.bio {
+		width: 100%;
+		padding: 10px 0px;
+	}
+	.label {
+		margin-left: 0px;
+	}
+	.label-right {
+		margin-right: 0px;
+	}
+	.tag {
+		width: 100%;
+	}
+  .nav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}

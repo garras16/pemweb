@@ -32,8 +32,15 @@ function drawPieSlice(ctx,centerX, centerY, radius, startAngle, endAngle, color 
 }
 
 var myVinyls2 = {
-    "COOKING": 10,
-    "CRAFTING": 100
+    <?php
+        $sql = "SELECT * FROM skill WHERE id_orang=1 AND tipe='ls'";
+        $query = mysqli_query($dbconnect, $sql) or die (mysqli_error($dbconnect));
+        while($row = mysqli_fetch_array($query)) :
+    ?>
+    "<?= strtoupper($row['nama']); ?>": <?= $row['value']; ?>,
+    <?php
+        endwhile;
+    ?>
 };
 
 var Piechart2 = function(options){

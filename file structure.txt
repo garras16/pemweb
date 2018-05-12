@@ -6,6 +6,7 @@ Struktur File Project
 |    |____ CSS
 |    |____ diagram
 |    |____ img
+|	 |____ process
 |___ file structue.txt
 |___ README.md
 |___ stefanus.php

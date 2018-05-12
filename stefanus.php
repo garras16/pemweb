@@ -20,6 +20,35 @@
 		</div>
 	</div>
 	<div class="label">ABOUT ME</div>
+	<?php
+		function tgl_indo($tanggal){
+			$bulan = array (
+				1 =>   'Januari',
+				'Februari',
+				'Maret',
+				'April',
+				'Mei',
+				'Juni',
+				'Juli',
+				'Agustus',
+				'September',
+				'Oktober',
+				'November',
+				'Desember'
+			);
+			$pecahkan = explode('-', $tanggal);
+			
+			// variabel pecahkan 0 = tanggal
+			// variabel pecahkan 1 = bulan
+			// variabel pecahkan 2 = tahun
+		 
+			return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
+		}
+		include 'src/process/connection.php';
+		$sql = "SELECT * FROM biodata WHERE id=1";
+		$query = mysqli_query($dbconnect, $sql) or die (mysqli_error($dbconnect));
+		while($row = mysqli_fetch_array($query)) :
+	?>
 	<div class="bio">
 		<div class="containt">
 			<div class="tag">
@@ -29,28 +58,32 @@
 					<tr>
 						<td>Nama </td>
 						<td>:</td>
-						<td>Stefanus Alvin Susanto</td>
+						<td><?= $row['nama']; ?></td>
 					</tr>
 					<tr>
 						<td>Tempat/Tanggal Lahir </td>
 						<td>:</td>
-						<td>Bandar Lampung / 16 Juni 1998</td>
+						<td><?= $row['tmpt_lahir']; ?> / <?= tgl_indo($row['tgl_lahir']); ?></td>
 					</tr>
 					<tr>
 						<td>Alamat </td>
 						<td>:</td>
-						<td>Jl. P. Tidore Gang Gotong Royong No.19 Jagabaya 2</td>
+						<td><?= $row['alamat']; ?></td>
 					</tr>
 					<tr>
 						<td>Hobi </td>
 						<td>:</td>
-						<td>Watching</td>
+						<td><?= $row['hobi']; ?></td>
 					</tr>
 				</table>
 				</div>
 			</div>
 		</div>
 	</div>
+
+	<?php
+		endwhile;
+	?>
 
 	<div class="label-right">SKILL</div>
 	<div class="bio">
@@ -111,11 +144,16 @@
 	}
 
 	var myVinyls = {
-	    "HTML": 10,
-			"JAVASCRIPT": 100,
-			"CSS": 100,
-			"PHP": 100,
-	};
+		<?php
+			$sql = "SELECT * FROM skill WHERE id_orang=1 AND tipe='ps'";
+			$query = mysqli_query($dbconnect, $sql) or die (mysqli_error($dbconnect));
+			while($row = mysqli_fetch_array($query)) :
+		?>
+	    "<?= $row['nama']; ?>": <?= $row['value']; ?>,
+	    <?php
+	    	endwhile;
+    	?>
+		};
 
 	var Piechart = function(options){
 	    this.options = options;

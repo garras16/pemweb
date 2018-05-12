@@ -1,5 +1,5 @@
 <div id="kanan">
-  <h4>Life Skill</h4>
+  <h4>Soft Skill</h4>
   <canvas id="myCanvas3"></canvas>
   <div id="myLegend3"></div>
 </div>
@@ -32,8 +32,15 @@ function drawPieSlice(ctx,centerX, centerY, radius, startAngle, endAngle, color 
 }
 
 var myVinyls3 = {
-    "COOKING": 10,
-    "CRAFTING": 70
+    <?php
+        $sql = "SELECT * FROM skill WHERE id_orang=1 AND tipe='ss'";
+        $query = mysqli_query($dbconnect, $sql) or die (mysqli_error($dbconnect));
+        while($row = mysqli_fetch_array($query)) :
+    ?>
+    "<?= strtoupper($row['nama']); ?>": <?= $row['value']; ?>,
+    <?php
+        endwhile;
+    ?>
 };
 
 var Piechart3 = function(options){

@@ -9,10 +9,10 @@
 		<div class="containt">
 			<h1 class="title">Calister TEAM</h1>
 			<div class="nav" id="topnav">
-				<a href="home.php">Home</a>
+				<a href="index.php">Home</a>
 				<a href="stefanus.php" class="active">Stefanus</a>
-				<a href="#contact">Contact</a>
-				<a href="#about">About</a>
+				<a href="#hafidza">Hafidza</a>
+				<a href="#adit">Adit</a>
 				<a href="javascript:void(0);" class="icon" onclick="myFunction()">
 			    <i class="fa fa-bars">=</i>
   			</a>
@@ -246,5 +246,8 @@
 	);
 	myDougnutChart.draw();
 	</script>
+	<div id="footer">
+		&copyCopyright 2018. CalisterTEAM
+	</div>
 </body>
 </html>

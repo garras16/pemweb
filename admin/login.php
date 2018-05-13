@@ -16,10 +16,10 @@
 		<div class="containt">
 			<h1 class="title">Calister TEAM</h1>
 			<div class="nav" id="topnav">
-				<a href="home.php">Home</a>
-				<a href="stefanus.php" class="active">Stefanus</a>
-				<a href="#contact">Contact</a>
-				<a href="#about">About</a>
+				<a href="src/process/logout.php">Logout</a>
+				<a href="1.php" class="active">Stefanus</a>
+				<a href="2.php">Hafidza</a>
+				<a href="3.php">Adit</a>
 				<a href="javascript:void(0);" class="icon" onclick="myFunction()">
 			    <i class="fa fa-bars">=</i>
   			</a>

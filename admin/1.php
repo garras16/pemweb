@@ -1,3 +1,10 @@
+<?php
+	session_start();
+
+	if($_SESSION['status'] != "login") {
+		header("location:login.php");
+	}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,9 +17,10 @@
 			<h1 class="title">Calister TEAM</h1>
 			<div class="nav" id="topnav">
 				<a href="home.php">Home</a>
-				<a href="stefanus.php" class="active">Stefanus</a>
+				<a href="1.php" class="active">Stefanus</a>
 				<a href="#contact">Contact</a>
 				<a href="#about">About</a>
+				<a href="src/process/logout.php">Logout</a>
 				<a href="javascript:void(0);" class="icon" onclick="myFunction()">
 			    <i class="fa fa-bars">=</i>
   			</a>
@@ -21,29 +29,6 @@
 	</div>
 	<div class="label">ABOUT ME</div>
 	<?php
-		function tgl_indo($tanggal){
-			$bulan = array (
-			1 =>'Januari',
-				'Februari',
-				'Maret',
-				'April',
-				'Mei',
-				'Juni',
-				'Juli',
-				'Agustus',
-				'September',
-				'Oktober',
-				'November',
-				'Desember'
-			);
-			$pecahkan = explode('-', $tanggal);
-
-			// variabel pecahkan 0 = tanggal
-			// variabel pecahkan 1 = bulan
-			// variabel pecahkan 2 = tahun
-
-			return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
-		}
 		include 'src/process/connection.php';
 		$sql = "SELECT * FROM biodata WHERE id=1";
 		$query = mysqli_query($dbconnect, $sql) or die (mysqli_error($dbconnect));
@@ -52,31 +37,39 @@
 	<div class="bio">
 		<div class="containt">
 			<div class="tag">
+				<form method="POST" action="src/process/bio.php">
 				<img src="src/img/a1.png">
 				<div id="bio">
 				<table>
 					<tr>
 						<td>Nama </td>
 						<td>:</td>
-						<td><?= $row['nama']; ?></td>
+						<td><input type="text" name="nama" value="<?= $row['nama']; ?>"></td>
 					</tr>
 					<tr>
 						<td>Tempat/Tanggal Lahir </td>
 						<td>:</td>
-						<td><?= $row['tmpt_lahir']; ?> / <?= tgl_indo($row['tgl_lahir']); ?></td>
+						<td><input type="text" name="tmpt" value="<?= $row['tmpt_lahir']; ?>"> / <input type="text" name="tgl" value="<?= $row['tgl_lahir']; ?>"></td>
 					</tr>
 					<tr>
 						<td>Alamat </td>
 						<td>:</td>
-						<td><?= $row['alamat']; ?></td>
+						<td><input type="text" name="alamat" value="<?= $row['alamat']; ?>"></td>
 					</tr>
 					<tr>
 						<td>Hobi </td>
 						<td>:</td>
-						<td><?= $row['hobi']; ?></td>
+						<td><input type="text" name="hobi" value="<?= $row['hobi']; ?>"></td>
+					</tr>
+					<tr>
+						<td>
+							<input type="hidden" name="id" value="1">
+							<input type="submit" name="save" value="Save">
+						</td>
 					</tr>
 				</table>
 				</div>
+				</form>
 			</div>
 		</div>
 	</div>
@@ -89,13 +82,44 @@
 	<div class="bio">
 		<div class="containt">
 			<div class="tag">
-				<div id="kiri">
-					<h4>Programming Skill</h4>
-					<canvas id="myCanvas"></canvas>
-					<div id="myLegend"></div>
-				</div>
-				<?php include "src/diagram/diagram2.php" ?>
-				<?php include 'src/diagram/diagram3.php'; ?>
+				<form method="POST" action="src/process/skill.php">
+					<div id="kiri">
+						<h4>Programming Skill</h4>
+						<canvas id="myCanvas"></canvas>
+						<?php
+							$sql = "SELECT * FROM skill WHERE tipe='ps'";
+							$query = mysqli_query($dbconnect,$sql);
+
+						?>
+						<table>
+							<tr>
+								<td>Skill</td>
+								<td>Nilai</td>
+							</tr>
+							<?php while($data = mysqli_fetch_array($query)) { ?>
+							<tr>
+								<td><?= $data['nama'] ?></td>
+								<td><?= $data['value'] ?></td>
+								<td><a href="src/process/delete.php?id=<?= $data['id']; ?>">X</a></td>
+							</tr>
+							<?php } ?>
+							<form method="POST" action="src/process/skill.php">
+							<tr>
+								<td><input type="text" name="nama"></td>
+								<td><input type="text" name="value"></td>
+							</tr>
+							<tr>
+								<td>
+									<input type="submit" name="save" value="Save">
+									<input type="hidden" name="pemilik" value="1">
+									<input type="hidden" name="tipe" value="ps">
+								</td>
+							</tr>
+							</form>
+						</table>
+					</div>
+					<?php include "src/diagram/diagram2.php" ?>
+					<?php include 'src/diagram/diagram3.php'; ?>
 			</div>
 		</div>
 	</div>
@@ -109,12 +133,12 @@
 	</div>
 	<script>
 	function myFunction() {
-    var x = document.getElementById("topnav");
-    if (x.className === "nav") {
-        x.className += " responsive";
-    } else {
-        x.className = "nav";
-    }
+	    var x = document.getElementById("topnav");
+	    if (x.className === "nav") {
+	        x.className += " responsive";
+	    } else {
+	        x.className = "nav";
+	    }
 	}
 	var myCanvas = document.getElementById("myCanvas");
 	myCanvas.width = 300;

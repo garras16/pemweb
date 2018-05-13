@@ -11,9 +11,9 @@
 			<div class="nav" id="topnav">
 				<a href="home.php">Home</a>
 				<a href="stefanus.php" class="active">Stefanus</a>
-			  <a href="#contact">Contact</a>
-			  <a href="#about">About</a>
-			  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+				<a href="#contact">Contact</a>
+				<a href="#about">About</a>
+				<a href="javascript:void(0);" class="icon" onclick="myFunction()">
 			    <i class="fa fa-bars">=</i>
   			</a>
 			</div>
@@ -37,11 +37,11 @@
 				'Desember'
 			);
 			$pecahkan = explode('-', $tanggal);
-			
+
 			// variabel pecahkan 0 = tanggal
 			// variabel pecahkan 1 = bulan
 			// variabel pecahkan 2 = tahun
-		 
+
 			return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
 		}
 		include 'src/process/connection.php';
@@ -103,7 +103,7 @@
 	<div class="bio">
 		<div class="containt">
 			<div class="tag">
-				
+
 			</div>
 		</div>
 	</div>
@@ -241,10 +241,10 @@
 	        data:myVinyls,
 	        colors:["#fde23e","#f16e23", "#57d9ff","#937e88"],
 	        legend:myLegend,
-					doughnutHoleSize:0.5
+			doughnutHoleSize:0.5
 	    }
 	);
-myDougnutChart.draw();
+	myDougnutChart.draw();
 	</script>
 </body>
 </html>

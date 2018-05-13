@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 13, 2018 at 11:15 AM
+-- Generation Time: May 13, 2018 at 02:27 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -52,11 +52,20 @@ INSERT INTO `biodata` (`id`, `nama`, `tmpt_lahir`, `tgl_lahir`, `alamat`, `hobi`
 
 CREATE TABLE `experience` (
   `id` int(11) NOT NULL,
-  `name` int(150) NOT NULL,
+  `name` varchar(150) NOT NULL,
   `organization` varchar(100) NOT NULL,
-  `start` date NOT NULL,
-  `end` date NOT NULL
+  `start` year(4) NOT NULL,
+  `end` year(4) NOT NULL,
+  `pemilik` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `experience`
+--
+
+INSERT INTO `experience` (`id`, `name`, `organization`, `start`, `end`, `pemilik`) VALUES
+(1, 'Sekretaris Umum', 'UNITY SMK 2 MEI', 2013, 2016, 1),
+(2, 'Kepala Biro Komunikasi dan Informasi', 'UKM Katolik Universitas Lampung', 2018, 0000, 1);
 
 -- --------------------------------------------------------
 
@@ -83,7 +92,8 @@ INSERT INTO `skill` (`id`, `nama`, `value`, `id_orang`, `tipe`) VALUES
 (6, 'cost management', 63, 1, 'ss'),
 (7, 'public relationship', 30, 1, 'ss'),
 (8, 'Javascript', 11, 1, 'ps'),
-(10, 'fishing', 50, 1, 'ls');
+(10, 'fishing', 50, 1, 'ls'),
+(11, 'PHP', 5, 1, 'ps');
 
 -- --------------------------------------------------------
 
@@ -147,13 +157,13 @@ ALTER TABLE `biodata`
 -- AUTO_INCREMENT for table `experience`
 --
 ALTER TABLE `experience`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `skill`
 --
 ALTER TABLE `skill`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `user`

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 12, 2018 at 07:15 AM
+-- Generation Time: May 13, 2018 at 11:15 AM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -42,7 +42,7 @@ CREATE TABLE `biodata` (
 --
 
 INSERT INTO `biodata` (`id`, `nama`, `tmpt_lahir`, `tgl_lahir`, `alamat`, `hobi`) VALUES
-(1, 'Stefanus Alvin Susanto', 'Bandar Lampung', '1998-06-16', 'Jl. P. Tidore Gang Gotong Royong No.19 Jagabaya 2', 'Watching');
+(1, 'Stefanus Alvin Susanto', 'Bandar Lampung', '1998-06-16', 'Jl. P. Tidore Gang Gotong Royong No.19 Jagabaya 2', 'Watching, Sleeping');
 
 -- --------------------------------------------------------
 
@@ -79,11 +79,31 @@ CREATE TABLE `skill` (
 INSERT INTO `skill` (`id`, `nama`, `value`, `id_orang`, `tipe`) VALUES
 (1, 'HTML', 20, 1, 'ps'),
 (2, 'CSS', 42, 1, 'ps'),
-(3, 'Javascript', 20, 1, 'ps'),
-(4, 'cooking', 75, 1, 'ls'),
 (5, 'crafting', 25, 1, 'ls'),
 (6, 'cost management', 63, 1, 'ss'),
-(7, 'public relationship', 30, 1, 'ss');
+(7, 'public relationship', 30, 1, 'ss'),
+(8, 'Javascript', 11, 1, 'ps'),
+(10, 'fishing', 50, 1, 'ls');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` text NOT NULL,
+  `nama` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `username`, `password`, `nama`) VALUES
+(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin');
 
 --
 -- Indexes for dumped tables
@@ -108,6 +128,12 @@ ALTER TABLE `skill`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -127,7 +153,13 @@ ALTER TABLE `experience`
 -- AUTO_INCREMENT for table `skill`
 --
 ALTER TABLE `skill`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

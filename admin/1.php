@@ -14,7 +14,7 @@
 <body>
 	<div class="top">
 		<div class="containt">
-			<h1 class="title">Calister TEAM</h1>
+			<h1 class="title">Calister TEAM - ADMIN PAGE</h1>
 			<div class="nav" id="topnav">
 				<a href="1.php" class="active">Stefanus</a>
 				<a href="2.php">Hafidza</a>

@@ -126,9 +126,35 @@
 	<div class="bio">
 		<div class="containt">
 			<div class="tag">
+				<div id="exp" style="padding: 0px 20px;">
+				<?php
+					$sql = "SELECT * FROM experience WHERE pemilik=1";
+					$query = mysqli_query($dbconnect, $sql) or die (mysqli_error($dbconnect));
+					while($row = mysqli_fetch_array($query)) :
+				?>
+				<h4 style="margin: 0px;"><?= $row['name']; ?> - <?= $row['organization']; ?></h4>
+				<h6 style="padding-top: 0px; padding-bottom: 0px; margin-top: 0px;"><?= $row['start']; ?> - 
+					<?php
+						if($row['end']=="0000")
+							echo "now";
+						else
+							echo $row['end'];
+					?></h6>
+				<?php endwhile; ?>
 
+				<form method="POST" action="src/process/experience.php" id="fexp">
+					<input type="text" name="name" placeholder="Jabatan"> - <input type="text" name="org" placeholder="Organisasi"><br>
+					<input type="text" maxlength="4" name="start" placeholder="Awal Menjabat"> - <input id="date"type="text" name="end" maxlength="4" placeholder="Akhir Menjabat"><br>
+					<input type="hidden" name="pemilik" value="1">
+					<input type="submit" name="Save" value="Save">
+				</form>
+				</div>
 			</div>
 		</div>
+	</div>
+
+	<div id="foot" style="width: 100%; text-align: center; bottom: 0; padding: 0px; font-size: 14px; color: #b9b8b8;margin-top: 20px;">
+		&copyCopyright 2018. CalisterTEAM
 	</div>
 	<script>
 	function myFunction() {
@@ -270,8 +296,6 @@
 	myDougnutChart.draw();
 	</script>
 
-	<div id="footer">
-		&copyCopyright 2018. CalisterTEAM
-	</div>
+
 </body>
 </html>

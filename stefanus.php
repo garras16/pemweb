@@ -103,9 +103,27 @@
 	<div class="bio">
 		<div class="containt">
 			<div class="tag">
-
+				<div id="exp">			
+				<?php
+					$sql = "SELECT * FROM experience WHERE pemilik=1";
+					$query = mysqli_query($dbconnect, $sql) or die (mysqli_error($dbconnect));
+					while($row = mysqli_fetch_array($query)) :
+				?>
+				<h4><?= $row['name']; ?> - <?= $row['organization']; ?></h4>
+				<h6><?= $row['start']; ?> - 
+					<?php
+						if($row['end']=="0000")
+							echo "now";
+						else
+							echo $row['end'];
+					?></h6>
+				<?php endwhile; ?>
+				</div>
 			</div>
 		</div>
+	</div>
+	<div id="footer">
+		&copyCopyright 2018. CalisterTEAM
 	</div>
 	<script>
 	function myFunction() {
@@ -246,8 +264,5 @@
 	);
 	myDougnutChart.draw();
 	</script>
-	<div id="footer">
-		&copyCopyright 2018. CalisterTEAM
-	</div>
 </body>
 </html>

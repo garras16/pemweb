@@ -4,6 +4,8 @@ body {
     padding: 0;
 
     background: #fff;
+    position: relative;
+    width: 100%;
 }
 
 .containt {
@@ -80,8 +82,26 @@ body {
     width: 30%;
 }
 
-
-
+#footer {
+    width: 100%;
+    text-align: center;
+    bottom: 0;
+    padding: 0px;
+    font-size: 14px;
+    color: #b9b8b8;
+    margin-top: 20px;
+}
+#exp {
+    padding: 0px 20px;
+}
+#exp h6 {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-top: 0px;
+}
+#exp h4 {
+    margin: 0px;
+}
 
 /* untuk biu data */
 

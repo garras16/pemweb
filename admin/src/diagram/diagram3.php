@@ -2,36 +2,37 @@
   <h4>Soft Skill</h4>
   <canvas id="myCanvas3"></canvas>
   <?php
-                            $sql = "SELECT * FROM skill WHERE tipe='ss'";
-                            $query = mysqli_query($dbconnect,$sql);
+        $my = 1;
+        $sql = "SELECT * FROM skill WHERE tipe='ss' AND id_orang='$my'";
+        $query = mysqli_query($dbconnect,$sql);
 
-                        ?>
-                        <table>
-                            <tr>
-                                <td>Skill</td>
-                                <td>Nilai</td>
-                            </tr>
-                            <?php while($data = mysqli_fetch_array($query)) { ?>
-                            <tr>
-                                <td><?= $data['nama'] ?></td>
-                                <td><?= $data['value'] ?></td>
-                                <td><a href="src/process/delete.php?id=<?= $data['id']; ?>">X</a></td>
-                            </tr>
-                            <?php } ?>
-                            <form method="POST" action="src/process/skill.php">
-                            <tr>
-                                <td><input type="text" name="nama"></td>
-                                <td><input type="text" name="value"></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <input type="submit" name="save" value="save">
-                                    <input type="hidden" name="pemilik" value="1">
-                                    <input type="hidden" name="tipe" value="ss">
-                                </td>
-                            </tr>
-                            </form>
-                        </table>
+    ?>
+    <table>
+        <tr>
+            <td>Skill</td>
+            <td>Nilai</td>
+        </tr>
+        <?php while($data = mysqli_fetch_array($query)) { ?>
+        <tr>
+            <td><?= $data['nama'] ?></td>
+            <td><?= $data['value'] ?></td>
+            <td><a href="src/process/delete.php?id=<?= $data['id']; ?>">X</a></td>
+        </tr>
+        <?php } ?>
+        <form method="POST" action="src/process/skill.php">
+        <tr>
+            <td><input type="text" name="nama"></td>
+            <td><input type="text" name="value"></td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" name="save" value="save">
+                <input type="hidden" name="pemilik" value="<?= $my; ?>">
+                <input type="hidden" name="tipe" value="ss">
+            </td>
+        </tr>
+        </form>
+    </table>
 </div>
 <script>
 var myCanvas3 = document.getElementById("myCanvas3");
@@ -63,7 +64,7 @@ function drawPieSlice(ctx,centerX, centerY, radius, startAngle, endAngle, color 
 
 var myVinyls3 = {
     <?php
-        $sql = "SELECT * FROM skill WHERE id_orang=1 AND tipe='ss'";
+        $sql = "SELECT * FROM skill WHERE id_orang='$my' AND tipe='ss'";
         $query = mysqli_query($dbconnect, $sql) or die (mysqli_error($dbconnect));
         while($row = mysqli_fetch_array($query)) :
     ?>

@@ -14,9 +14,9 @@ $cek = mysqli_num_rows($data);
 if($cek != 0) {
 	$_SESSION['username'] = $username;
 	$_SESSION['status'] = "login";
-	header("location:../../1.php");
+	header("location:../../1");
 }else{
-	echo '<script language="javascript">alert("Username dan Password salah"); document.location="../../login.php";</script>';
+	echo '<script language="javascript">alert("Username dan Password salah"); document.location="../../login";</script>';
 }
 
 ?>

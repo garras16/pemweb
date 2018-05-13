@@ -12,8 +12,8 @@ $query = mysqli_query($dbconnect, $sql);
 
 if($query) {
 	if($query)
-		echo '<script language="javascript">alert("Data Berhasil Dimasukkan"); document.location="../../1.php";</script>';
+		echo '<script language="javascript">alert("Data Berhasil Dimasukkan"); document.location="../../'.$pemilik.'";</script>';
 	else
-		echo '<script language="javascript">alert("Data Gagal Dimasukkan"); document.location="../../1.php";</script>';
+		echo '<script language="javascript">alert("Data Gagal Dimasukkan"); document.location="../../'.$pemilik.'";</script>';
 }
 ?>

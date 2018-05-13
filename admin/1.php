@@ -4,6 +4,7 @@
 	if($_SESSION['status'] != "login") {
 		header("location:login.php");
 	}
+	$my = 1;
 ?>
 <!DOCTYPE html>
 <html>
@@ -16,10 +17,10 @@
 		<div class="containt">
 			<h1 class="title">Calister TEAM - ADMIN PAGE</h1>
 			<div class="nav" id="topnav">
-				<a href="1.php" class="active">Stefanus</a>
-				<a href="2.php">Hafidza</a>
-				<a href="3.php">Adit</a>
-				<a href="src/process/logout.php">Logout</a>
+				<a href="1" class="active">Stefanus</a>
+				<a href="2">Adit</a>
+				<a href="3">Hafidza</a>
+				<a href="src/process/logout">Logout</a>
 				<a href="javascript:void(0);" class="icon" onclick="myFunction()">
 			    <i class="fa fa-bars">=</i>
   			</a>
@@ -29,7 +30,7 @@
 	<div class="label">ABOUT ME</div>
 	<?php
 		include 'src/process/connection.php';
-		$sql = "SELECT * FROM biodata WHERE id=1";
+		$sql = "SELECT * FROM biodata WHERE id='$my'";
 		$query = mysqli_query($dbconnect, $sql) or die (mysqli_error($dbconnect));
 		while($row = mysqli_fetch_array($query)) :
 	?>
@@ -62,7 +63,7 @@
 					</tr>
 					<tr>
 						<td>
-							<input type="hidden" name="id" value="1">
+							<input type="hidden" name="id" value="<?= $my; ?>">
 							<input type="submit" name="save" value="Save">
 						</td>
 					</tr>
@@ -86,7 +87,7 @@
 						<h4>Programming Skill</h4>
 						<canvas id="myCanvas"></canvas>
 						<?php
-							$sql = "SELECT * FROM skill WHERE tipe='ps'";
+							$sql = "SELECT * FROM skill WHERE tipe='ps' && id_orang='$my'";
 							$query = mysqli_query($dbconnect,$sql);
 
 						?>
@@ -99,7 +100,7 @@
 							<tr>
 								<td><?= $data['nama'] ?></td>
 								<td><?= $data['value'] ?></td>
-								<td><a href="src/process/delete.php?id=<?= $data['id']; ?>">X</a></td>
+								<td><a href="src/process/delete.php?id=<?= $data['id']; ?>&&orang=<?= $data['id_orang'];?>">X</a></td>
 							</tr>
 							<?php } ?>
 							<form method="POST" action="src/process/skill.php">
@@ -110,7 +111,7 @@
 							<tr>
 								<td>
 									<input type="submit" name="save" value="Save">
-									<input type="hidden" name="pemilik" value="1">
+									<input type="hidden" name="pemilik" value="<?= $my; ?>">
 									<input type="hidden" name="tipe" value="ps">
 								</td>
 							</tr>
@@ -128,7 +129,7 @@
 			<div class="tag">
 				<div id="exp" style="padding: 0px 20px;">
 				<?php
-					$sql = "SELECT * FROM experience WHERE pemilik=1";
+					$sql = "SELECT * FROM experience WHERE pemilik='$my'";
 					$query = mysqli_query($dbconnect, $sql) or die (mysqli_error($dbconnect));
 					while($row = mysqli_fetch_array($query)) :
 				?>
@@ -194,7 +195,7 @@
 
 	var myVinyls = {
 		<?php
-			$sql = "SELECT * FROM skill WHERE id_orang=1 AND tipe='ps'";
+			$sql = "SELECT * FROM skill WHERE id_orang='$my' AND tipe='ps'";
 			$query = mysqli_query($dbconnect, $sql) or die (mysqli_error($dbconnect));
 			while($row = mysqli_fetch_array($query)) :
 		?>

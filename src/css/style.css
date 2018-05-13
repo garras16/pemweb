@@ -1,13 +1,19 @@
+@font-face {
+    font-family: "hi melody";
+    src : url("../font/HiMelody-Regular.ttf");
+}
 html,
 body {
     margin: 0;
     padding: 0;
-
     background: #fff;
     position: relative;
     width: 100%;
 }
-
+.title {
+    font-family: hobo std;
+    margin-left: 10px;
+}
 .containt {
     width: 1024px;
     margin: 0 100px;
@@ -33,6 +39,46 @@ body {
 
     border-radius: 10px;
     background-color: #333;
+}
+
+#main {
+    padding: 70px 15px;
+}
+
+.people img {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+}
+
+#kiri .people h3 {
+    margin-left: 50px;
+    margin-bottom: 0px;
+}
+
+#kiri .people h5 {
+    margin-left: 75px;
+    margin-top: 0px;
+}
+
+#tengah .people h3 {
+    margin-left: 35px;
+    margin-bottom: 0px;
+}
+
+#tengah .people h5 {
+    margin-left: 75px;
+    margin-top: 0px;
+}
+
+#kanan .people h3 {
+    margin-left: 12px;
+    margin-bottom: 0px;
+}
+
+#kanan .people h5 {
+    margin-left: 80px;
+    margin-top: 0px;
 }
 
 .label {

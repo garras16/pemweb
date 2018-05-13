@@ -16,16 +16,10 @@
 		<div class="containt">
 			<h1 class="title">Calister TEAM - ADMIN PAGE</h1>
 			<div class="nav" id="topnav">
-				<?php
-				 if(isset($_SESSION['status'])) {
-				 	echo '<a href="src/process/logout.php"  class="active">Logout</a>';	
-				 }else{
-				 	echo '<a href="../index.php"  class="active">Main</a>';
-				 } 
-				?>
-				<a href="1.php">Stefanus</a>
-				<a href="2.php">Hafidza</a>
-				<a href="3.php">Adit</a>
+				<a href="../index"  class="active">Main</a>
+				<a href="1">Stefanus</a>
+				<a href="2">Hafidza</a>
+				<a href="3">Adit</a>
 				<a href="javascript:void(0);" class="icon" onclick="myFunction()">
 			    <i class="fa fa-bars">=</i>
   			</a>

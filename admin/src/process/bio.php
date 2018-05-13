@@ -18,10 +18,10 @@
 		$query = mysqli_query($dbconnect,$sql);
 
 		if($query) {
-			echo '<script language="javascript">alert("Perubahan Biodata Berhasil"); document.location="../../'.$id.'.php";</script>';
+			echo '<script language="javascript">alert("Perubahan Biodata Berhasil"); document.location="../../'.$id.'";</script>';
 		}
 		else {
-			echo '<script language="javascript">alert("Perubahan Biodata Gagal"); document.location="../../'.$id.'.php";</script>';
+			echo '<script language="javascript">alert("Perubahan Biodata Gagal"); document.location="../../'.$id.'";</script>';
 		}
 	}
 ?>

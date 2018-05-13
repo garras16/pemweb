@@ -15,15 +15,15 @@ while($data = mysqli_fetch_array($query)) {
 }
 
 if(($limit-$value) < 0) {
-	echo '<script language="javascript">alert("Jumlah value Yang anda masukkan melebihi 100"); document.location="../../1.php";</script>';
+	echo '<script language="javascript">alert("Jumlah value Yang anda masukkan melebihi 100"); document.location="../../1";</script>';
 }else{
 	$sql = "INSERT INTO skill VALUES ('','$nama','$value','$id','$tipe')";
 	$query = mysqli_query($dbconnect, $sql);
 
 	if($query)
-		echo '<script language="javascript">alert("Data Berhasil Dimasukkan"); document.location="../../1.php";</script>';
+		echo '<script language="javascript">alert("Data Berhasil Dimasukkan"); document.location="../../'.$id.'";</script>';
 	else
-		echo '<script language="javascript">alert("Data Gagal Dimasukkan"); document.location="../../1.php";</script>';
+		echo '<script language="javascript">alert("Data Gagal Dimasukkan"); document.location="../../'.$id.'";</script>';
 }
 
 

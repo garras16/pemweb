@@ -31,14 +31,14 @@
 		</div>
 		<div id="tengah">
 			<div class="people">
-				<img src="src/img/a1.png">
+				<img src="src/img/a3.jpg">
 				<h3>Hafidza Anindita Warsito</h3>
 				<h5>Front-End Programmer</h5>
 			</div>
 		</div>
 		<div id="kanan">
 			<div class="people">
-				<img src="src/img/a1.png">
+				<img src="src/img/a2.png">
 				<h3>Muhammad Aditya Fajriyanto</h3>
 				<h5>Back-End Programmer</h5>
 			</div>

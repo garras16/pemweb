@@ -52,7 +52,7 @@
 	<div class="bio">
 		<div class="containt">
 			<div class="tag">
-				<img src="src/img/a1.png">
+				<img src="src/img/a3.jpg">
 				<div id="bio">
 				<table>
 					<tr>

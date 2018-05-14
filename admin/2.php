@@ -39,7 +39,7 @@
 		<div class="containt">
 			<div class="tag">
 				<form method="POST" action="src/process/bio.php">
-				<img src="src/img/a1.png">
+				<img src="src/img/a2.png">
 				<div id="bio">
 				<table>
 					<tr>

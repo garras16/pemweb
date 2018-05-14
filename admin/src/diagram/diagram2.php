@@ -16,7 +16,7 @@
         <tr>
             <td><?= $data['nama'] ?></td>
             <td><?= $data['value'] ?></td>
-            <td><a href="src/process/delete.php?id=<?= $data['id']; ?>">X</a></td>
+            <td><a href="src/process/delete.php?id=<?= $data['id']; ?>&&orang=<?= $data['id_orang'];?>">X</a></td>
         </tr>
         <?php } ?>
         <form method="POST" action="src/process/skill.php">

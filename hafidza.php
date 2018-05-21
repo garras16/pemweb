@@ -229,7 +229,7 @@
 			this.ctx.fillText(labelText+"%", labelX,labelY);
 			start_angle += slice_angle;
 		}
-							drawPieSlice(
+	drawPieSlice(
 	                this.ctx,
 	                this.canvas.width/2,
 	                this.canvas.height/2,

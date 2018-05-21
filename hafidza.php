@@ -112,10 +112,10 @@
 				<h4><?= $row['name']; ?> - <?= $row['organization']; ?></h4>
 				<h6><?= $row['start']; ?> - 
 					<?php
-						if($row['end']=="0000")
+						if($row['akhir']=="0000")
 							echo "now";
 						else
-							echo $row['end'];
+							echo $row['akhir'];
 					?></h6>
 				<?php endwhile; ?>
 				</div>

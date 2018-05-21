@@ -15,7 +15,7 @@
 				<a href="adit">Adit</a>
 				<a href="javascript:void(0);" class="icon" onclick="myFunction()">
 			   	<i class="fa fa-bars">=</i>
-  			</a>
+  				</a>
 			</div>
 		</div>
 	</div>
@@ -112,10 +112,10 @@
 				<h4><?= $row['name']; ?> - <?= $row['organization']; ?></h4>
 				<h6><?= $row['start']; ?> - 
 					<?php
-						if($row['akhir']=="0000")
+						if($row['end']=="0000")
 							echo "now";
 						else
-							echo $row['akhir'];
+							echo $row['end'];
 					?></h6>
 				<?php endwhile; ?>
 				</div>

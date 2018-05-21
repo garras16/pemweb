@@ -10,6 +10,8 @@ Struktur File Project
 |___ file structue.txt
 |___ README.md
 |___ stefanus.php
+|___ adit.php
+|___ hafidza.php
 |___ admin
 	 |____ src
 	 |		|____ css
@@ -17,4 +19,6 @@ Struktur File Project
 	 |		|____ img
 	 |		|____ process
 	 |____ 1.php
+	 |____ 2.php
+	 |____ 3.php
 	 |____ login.php

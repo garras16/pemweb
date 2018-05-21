@@ -136,10 +136,7 @@
 				<h4 style="margin: 0px;"><?= $row['name']; ?> - <?= $row['organization']; ?></h4>
 				<h6 style="padding-top: 0px; padding-bottom: 0px; margin-top: 0px;"><?= $row['start']; ?> - 
 					<?php
-						if($row['end']=="0000")
-							echo "now";
-						else
-							echo $row['end'];
+						echo '<form action="src/process/exp.php" method="POST"><input type="text" name="akhir" placeholder="'.$row['akhir'].'"><input type="hidden" name="id" value="'.$row['id'].'"><input type="hidden" name="pemilik" value="'.$my.'"></form>';
 					?></h6>
 				<?php endwhile; ?>
 
